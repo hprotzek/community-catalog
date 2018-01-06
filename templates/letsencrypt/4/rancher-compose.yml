@@ -107,6 +107,13 @@
         E.g. for the `rancher-ebs` driver you should specify the required 'size' option like this: "size: 1".
       required: false
       type: string
+    - variable: ENVIRONMENT_SCOPED
+      label: Environment scoped storage volume
+      description: |
+        If the storage volume is existing and environment scoped, this must be set.
+      required: true
+      type: boolean
+      default: false
     - variable: PROVIDER
       label: Domain Validation Method
       description: Select a DNS provider to use for domain validation. Use 'HTTP' if your domain is hosted elsewhere.
