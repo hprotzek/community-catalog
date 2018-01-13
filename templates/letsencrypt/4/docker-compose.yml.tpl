@@ -52,6 +52,9 @@ services:
 {{- if .Values.VOLUME_NAME}}
 volumes:
   {{.Values.VOLUME_NAME}}:
+    {{- if eq .Values.ENVIRONMENT_SCOPED "true" }}
+    external: true
+    {{- else}}
     {{- if .Values.STORAGE_DRIVER}}
     driver: {{.Values.STORAGE_DRIVER}}
     {{- if .Values.STORAGE_DRIVER_OPT}}
@@ -59,7 +62,5 @@ volumes:
       {{.Values.STORAGE_DRIVER_OPT}}
     {{- end }}
     {{- end }}
-    {{- if eq .Values.ENVIRONMENT_SCOPED "true" }}
-    external: true
     {{- end }}
 {{- end }}
